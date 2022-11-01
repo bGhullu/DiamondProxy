@@ -21,7 +21,8 @@ async function deployDiamond () {
   const FacetNames = [
     'DiamondCutFacet',
     'DiamondLoupeFacet',
-    'OwnershipFacet'
+    'OwnershipFacet',
+    'Activator'
   ]
   // The `facetCuts` variable is the FacetCut[] that contains the functions to add during diamond deployment
   const facetCuts = []
@@ -40,24 +41,24 @@ async function deployDiamond () {
   // Creating a function call
   // This call gets executed during deployment and can also be executed in upgrades
   // It is executed with delegatecall on the DiamondInit address.
-  let functionCall = diamondInit.interface.encodeFunctionData('init')
+  // let functionCall = diamondInit.interface.encodeFunctionData('init')
 
-  // Setting arguments that will be used in the diamond constructor
-  const diamondArgs = {
-    owner: contractOwner.address,
-    init: diamondInit.address,
-    initCalldata: functionCall
-  }
+  // // Setting arguments that will be used in the diamond constructor
+  // const diamondArgs = {
+  //   owner: contractOwner.address,
+  //   init: diamondInit.address,
+  //   initCalldata: functionCall
+  // }
 
-  // deploy Diamond
-  const Diamond = await ethers.getContractFactory('Diamond')
-  const diamond = await Diamond.deploy(facetCuts, diamondArgs)
-  await diamond.deployed()
-  console.log()
-  console.log('Diamond deployed:', diamond.address)
+  // // deploy Diamond
+  // const Diamond = await ethers.getContractFactory('Diamond')
+  // const diamond = await Diamond.deploy(facetCuts, diamondArgs)
+  // await diamond.deployed()
+  // console.log()
+  // console.log('Diamond deployed:', diamond.address)
 
-  // returning the address of the diamond
-  return diamond.address
+  // // returning the address of the diamond
+  // return diamond.address
 }
 
 // We recommend this pattern to be able to use async/await everywhere

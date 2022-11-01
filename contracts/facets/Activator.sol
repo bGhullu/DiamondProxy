@@ -5,9 +5,9 @@ pragma solidity ^0.8.7;
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "./libraries/TokenUtils.sol";
-import "./base/Error.sol";
-import "./libraries/SafeCast.sol";
+import "../libraries/TokenUtils.sol";
+import "../base/Error.sol";
+import "../libraries/SafeCast.sol";
 
 /**
  * @title Activator
